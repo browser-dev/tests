@@ -5,7 +5,8 @@
 
     <script>
         function opendlg() {
-            var win = window.openDialog("/dialog/dialog.html", "dlg", "", "pizza", 6.98);
+            var selectArray = new Array();
+            var win = window.showModalDialog("/dialog/dialog.html", selectArray, "status=no; dialogWidth: 500px; dialogHeight: 480px; help: 0;");
         }
     </script>
 </html>
