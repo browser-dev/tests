@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>from</title>
+	</head>
+	<script type="text/javascript">
+		function open_win(url) {
+			const popup = window.open(url)
+			setTimeout(() => {
+				const data = {
+					code: 200,
+					msg: 'msg transport from from.html'
+				}
+				popup.postMessage(data, '*')
+			}, 1000)
+		}
+	</script>
+	<body>
+		<ul>
+			<li id="id1" onclick="open_win('http://hkb.ricl.cn/to.html')">Client to start window.open</li>
+		</ul>
+	</body>
+</html>
+

@@ -1,0 +1,12 @@
+<div class="print-content">
+  THIS IS TEST CONTENT
+  <a href="#" onclick="doPrint()">DO PRINT</a>
+</div>
+
+<script>
+function doPrint() { 
+    const html = window.document.body.innerHTML; 
+    window.document.body.innerHTML = html;
+    window.print();
+}
+</script>

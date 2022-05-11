@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Disable Ctrls</title>
+    </head>
+    <body>
+        <form id="Form1" method="post" runat="server">
+            <asp:textbox text="0" id="TextBox1" runat="server" />
+            <asp:requiredfieldvalidator id="RFV1" runat="server" 
+                errormessage="Required" controltovalidate="TextBox1" />
+            <asp:comparevalidator id="CFV1" runat="server" 
+                errormessage="Numeric" operator="DataTypeCheck"
+                controltovalidate="TextBox1" type="Integer" />
+            <br />
+            <asp:textbox text="0" id="TextBox2" runat="server" />
+            <asp:requiredfieldvalidator id="rfv2" runat="server"        
+                errormessage="Required" controltovalidate="TextBox2" />
+            <asp:comparevalidator id="cfv2" runat="server" 
+                errormessage="Numeric" operator="DataTypeCheck"
+                controltovalidate="TextBox2" type="Integer" />
+            <br />
+            <asp:label id="lblResult" runat="server" text="Result:" />
+            <asp:button id="cmdAdd" onclick="Add" 
+                runat="server" text="Add" />
+            <asp:button id="cmdSubstract" onclick="Substract" 
+                runat="server" text="Substract" />
+            <br />
+            <asp:validationsummary showmessagebox="True" 
+                id="ValidationSummary1" runat="server" />
+        </form>
+        <script runat="server" language="C#">
+            void Page_Load (System.Object sender, System.EventArgs e) {
+                DisableHelper.DisableCtrlOnSubmit (
+                this, "Form1.cmdAdd", "Form1.cmdSubstract");
+            }
+            void Add (System.Object sender, System.EventArgs e) {
+                lblResult.Text = (Int32.Parse (TextBox1.Text) + 
+                    Int32.Parse(TextBox2.Text)).ToString();
+                System.Threading.Thread.Sleep (2000);
+            }
+            void Substract (System.Object sender, System.EventArgs e) {
+                lblResult.Text = (Int32.Parse (TextBox1.Text) – 
+                    Int32.Parse(TextBox2.Text)).ToString();
+                System.Threading.Thread.Sleep (2000);
+            }            
+        </script>
+    </body>
+</html>

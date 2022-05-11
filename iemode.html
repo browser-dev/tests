@@ -1,0 +1,38 @@
+<html>
+        <head>
+                <meta charset="utf-8" />
+                <title>ie mode</title>
+        </head>
+        <script type="text/javascript">
+                function iemode() {
+			engine = null;
+if (window.navigator.appName == "Microsoft Internet Explorer" || true)
+{
+   // This is an IE browser. What mode is the engine in?
+   if (document.documentMode) // IE8 or later
+      engine = document.documentMode;
+   else // IE 5-7
+   {
+      engine = 5; // Assume quirks mode unless proven otherwise
+      if (document.compatMode)
+      {
+         if (document.compatMode == "CSS1Compat")
+            engine = 7; // standards mode
+      }
+      // There is no test for IE6 standards mode because that mode  
+      // was replaced by IE7 standards mode; there is no emulation.
+   }
+   // the engine variable now contains the document compatibility mode.
+} else {
+	engine = 'unknown';
+}
+	alert(engine);
+	return engine;
+                }
+        </script>
+        <body>
+                <ul>
+                        <a href="#" onclick="iemode()">Client to show IE MODE</a>
+                </ul>
+        </body>
+</html>
